@@ -7,11 +7,8 @@ import uiRouter from '@uirouter/angularjs';
 import routing from './core.routing';
 
 import 'angular-material/angular-material.min.css';
-import MovieApiService from './movie-api.service';
-
 const core = angular
   .module('app.core', [ngAnimate, ngAria, ngMessages, ngMaterial, uiRouter])
-  .config(routing)
-  .service('movieApiService', MovieApiService).name;
+  .config(routing).name;
 
 export default core;

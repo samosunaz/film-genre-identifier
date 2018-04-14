@@ -1,0 +1,52 @@
+<div layout="row" layout-align="center center">
+  <md-card flex="25">
+    <md-card-title>
+      <md-card-title-text>
+        <span class="md-title">Mine data from genres</span>
+      </md-card-title-text>
+    </md-card-title>
+    <md-card-content>
+      <div layout="row" layout-align="start center">
+        <md-input-container flex="100">
+          <label>Genre</label>
+          <md-select ng-model="vm.genre" flex="100">
+            <md-option ng-repeat="genre in vm.genres" ng-value="genre">
+              {{ genre.name }}
+            </md-option>
+          </md-select>
+        </md-input-container>
+      </div>
+    </md-card-content>
+    <md-card-actions layout="row" layout-align="end center">
+      <md-button class="md-raised md-accent" ng-click="vm.mineDataFromGenre()">Start mining</md-button>
+    </md-card-actions>
+  </md-card>
+</div>
+
+<div layout="row" layout-align="center center" ng-if="vm.foundMovies">
+  <md-card flex="50">
+    <md-toolbar class="md-primary">
+      <div class="md-toolbar-tools">
+        <span class="md-title">
+          <strong>
+            {{ vm.genre.name }}
+          </strong>
+        </span>
+      </div>
+    </md-toolbar>
+    <md-card-content>
+      <md-virtual-repeat-container style="height: 300px">
+        <div md-virtual-repeat="movie in vm.movies" flex>
+          <p>
+            {{ movie.original_title }}
+          </p>
+          <md-divider ng-if="!$last"></md-divider>
+        </div>
+      </md-virtual-repeat-container>
+    </md-card-content>
+  </md-card>
+</div>
+
+<div ng-if="vm.searchingForMovies" layout="row" layout-align="center center">
+  <md-progress-circular class="md-primary" md-mode="indeterminate"></md-progress-circular>
+</div>

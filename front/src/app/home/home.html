@@ -1,31 +1,40 @@
 <div layout="row" layout-align="center center">
-  <md-card flex="50">
+  <md-card flex="25">
     <md-card-title>
       <span class="md-title">Search Movie</span>
     </md-card-title>
     <md-card-content>
       <div layout="row" layout-align="space-between center">
-        <md-input-container flex="50">
+        <md-input-container flex="100">
           <input type="text" placeholder="Movie URL" ng-model="vm.movieId">
         </md-input-container>
-        <md-button class="md-primary md-raised" ng-click="vm.findById()">Search</md-button>
       </div>
     </md-card-content>
+    <md-card-actions layout="row" layout-align="end center">
+      <md-button class="md-accent md-raised" ng-click="vm.findById()">Search</md-button>
+    </md-card-actions>
   </md-card>
 </div>
-<div layout="row" ng-if="vm.movie">
+<div layout="row" ng-if="vm.movie.hasOwnProperty('original_title')">
   <div flex="30">
     <md-card>
       <img ng-src="{{ 'https://image.tmdb.org/t/p/w300_and_h450_bestv2' + vm.movie.backdrop_path }}" alt="">
     </md-card>
   </div>
-  <div>
+  <div flex="70">
     <md-card>
       <md-card-title>
         <md-card-title-text>
           <span class="md-title">{{ vm.movie.original_title }}</span>
         </md-card-title-text>
       </md-card-title>
+      <div class="md-padding">
+        <md-chips ng-model="vm.movie.genres" readonly="true">
+          <md-chip-template>
+            {{ $chip.name }}
+          </md-chip-template>
+        </md-chips>
+      </div>
       <md-card-content>
         <p>
           {{ vm.movie.overview }}
@@ -33,4 +42,7 @@
       </md-card-content>
     </md-card>
   </div>
+</div>
+<div layout="row" layout-align="center center" layout-margin flex ng-if="vm.isSpinnerShowing">
+  <md-progress-circular class="md-primary" md-mode="indeterminate"></md-progress-circular>
 </div>
