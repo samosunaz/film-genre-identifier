@@ -1,0 +1,36 @@
+<div layout="row" layout-align="center center">
+  <md-card flex="50">
+    <md-card-title>
+      <span class="md-title">Search Movie</span>
+    </md-card-title>
+    <md-card-content>
+      <div layout="row" layout-align="space-between center">
+        <md-input-container flex="50">
+          <input type="text" placeholder="Movie URL" ng-model="vm.movieId">
+        </md-input-container>
+        <md-button class="md-primary md-raised" ng-click="vm.findById()">Search</md-button>
+      </div>
+    </md-card-content>
+  </md-card>
+</div>
+<div layout="row" ng-if="vm.movie">
+  <div flex="30">
+    <md-card>
+      <img ng-src="{{ 'https://image.tmdb.org/t/p/w300_and_h450_bestv2' + vm.movie.backdrop_path }}" alt="">
+    </md-card>
+  </div>
+  <div>
+    <md-card>
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-title">{{ vm.movie.original_title }}</span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-content>
+        <p>
+          {{ vm.movie.overview }}
+        </p>
+      </md-card-content>
+    </md-card>
+  </div>
+</div>
