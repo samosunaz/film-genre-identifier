@@ -21,9 +21,11 @@ export default class MovieApiService {
     return response;
   }
 
-  async getMoviesByGenre(genreId) {
+  async getMoviesByGenre(genreId, pageNumber) {
     const response = await this.$http.get(
-      `${this.MOVIE_API_URL}/genre/${genreId}/movies?api_key=${this.API_KEY}`,
+      `${this.MOVIE_API_URL}/genre/${genreId}/movies?api_key=${
+        this.API_KEY
+      }&page=${pageNumber}`,
     );
     return response;
   }
