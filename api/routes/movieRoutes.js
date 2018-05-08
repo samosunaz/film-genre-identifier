@@ -4,11 +4,7 @@ const router = require('express-promise-router')();
 const controller = require('../controllers/movieController');
 
 router
-  .route('/test')
-  .get(controller.test)
-
-router
-  .route('/')
-  .get(controller.fetch)
+  .route('/:movieId')
+  .get(controller.fetchMovie)
 
 module.exports = router;

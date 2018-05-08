@@ -2,67 +2,30 @@
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
-const url = "http://api.themoviedb.org/4/list/1?page=1&api_key=ed0abe5e1cc4ac92257db413fe507215&sort_by=title.asc"
+// const url = "http://api.themoviedb.org/4/list/1?page=1&api_key=ed0abe5e1cc4ac92257db413fe507215&sort_by=title.asc"
 
-exports.fetch = async (req, res, next) => {
+exports.fetchMovie = async (req, res, next) => {
 
-  const movieName = req.body.name
-
-  fetch(url)
-    .then(
-      function(response) {
-
-        if (response.status !== 200) {
-          console.log('Looks like there was a problem. Status Code: ' +
-            response.status);
-          return;
-        }
-
-        response.json().then(function(data) {
-          let movie;
-          for (let i = 0; i < data.results.length; i++) {
-            if(data.results[i].title == movieName){
-              movie = data.results[i];
-              break;
-            }
-          }
-          res.json(movie)
-        });
-
-      }
-    )
-    .catch(function(err) {
-      console.log('Fetch Error :-S', err);
-    });
-};
-
-exports.test = async (req, res, next) => {
+  const movieId = req.params.movieId
+  const url = "https://api.themoviedb.org/3/movie/"+movieId+"?api_key=ed0abe5e1cc4ac92257db413fe507215&sort_by=title.asc"
+  const response = {
+    name,
+    overview
+  };
 
   fetch(url)
-    .then(
-      function(response) {
-        if (response.status !== 200) {
-          console.log('Looks like there was a problem. Status Code: ' +
-            response.status);
-          return;
-        }
-
-        response.json().then(function(data) {
-
-          console.log("length", data.results.length)
-          const movies = data.results.map((item) => {
-            return {
-              title: item.title,
-              overview: item.overview
-            };
-          });
-
-          res.json(movies)
+    .then(response => {
+      response.json().then(data => {
+        let movies = data.results.map((item) => {
+          return {
+            title: item.title,
+            overview: item.overview
+          };
         });
-      }
-    )
-    .catch(function(err) {
-      console.log('Fetch Error :-S', err);
+        res.json(dataResponse);
+      });
+    })
+    .catch(err => {
+      console.log(err)
     });
-
 };

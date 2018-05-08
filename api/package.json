@@ -14,7 +14,9 @@
     "es6-promise": "^4.2.4",
     "express": "^4.16.3",
     "express-promise-router": "^3.0.2",
+    "fs": "0.0.1-security",
     "isomorphic-fetch": "^2.2.1",
-    "morgan": "^1.9.0"
+    "morgan": "^1.9.0",
+    "request": "^2.85.0"
   }
 }

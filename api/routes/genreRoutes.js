@@ -4,11 +4,11 @@ const router = require('express-promise-router')();
 const controller = require('../controllers/genreController');
 
 router
-  .route('/test')
-  .get(controller.test)
+  .route('/fetchMoviesByGenre/:genreId')
+  .get(controller.fetchMoviesByGenre)
 
 router
-  .route('/')
-  .get(controller.genres)
+  .route('/test/:genreId')
+  .get(controller.main)
 
 module.exports = router;
