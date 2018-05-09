@@ -1,5 +1,7 @@
 'use strict';
 const utils = require("../utils/json-generator")
+const PythonShell = require('python-shell');
+
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
@@ -75,4 +77,20 @@ exports.fetchMoviesByGenre = async (req, res, next) => {
     .catch(function(err) {
       console.log('Fetch Error :-S', err);
     });
+}
+
+exports.pyDictionary = async (req, res, next) => {
+
+  var options = {
+    mode: 'text',
+    pythonPath: '/usr/local/bin/python',
+    pythonOptions: ['-u'],
+    scriptPath: '/Users/scastro81/Documents/school/compiladores/film-genre-identifier/api/controllers'
+  };
+
+  PythonShell.run("helloWorld.py", options, function (err, data) {
+      if (err) res.send(err);
+    res.send(data.toString())
+  });
+
 }

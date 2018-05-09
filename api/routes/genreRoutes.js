@@ -11,4 +11,8 @@ router
   .route('/test/:genreId')
   .get(controller.main)
 
+router 
+  .route('/pyDictionary')
+  .get(controller.pyDictionary)
+
 module.exports = router;

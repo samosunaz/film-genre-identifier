@@ -40,6 +40,6 @@ app.use((err, req, res, next) => {
 
 app.get('/', (req, res) => res.send('Hello World!!'));
 
-app.listen(4000, () =>
-  console.log('listening on port ' + 4000)
+app.listen(5002, () =>
+  console.log('listening on port ' + 5002)
 );
