@@ -1,0 +1,21 @@
+{ "scores":[
+{ "genre":"action", "score":548},
+{ "genre":"adventure", "score":709},
+{ "genre":"animation", "score":759},
+{ "genre":"comedy", "score":501},
+{ "genre":"crime", "score":296},
+{ "genre":"documentary", "score":344},
+{ "genre":"drama", "score":316},
+{ "genre":"family", "score":616},
+{ "genre":"fantasy", "score":533},
+{ "genre":"history", "score":255},
+{ "genre":"horror", "score":542},
+{ "genre":"music", "score":307},
+{ "genre":"mystery", "score":365},
+{ "genre":"romance", "score":410},
+{ "genre":"science-fiction", "score":1293},
+{ "genre":"tv-movie", "score":385},
+{ "genre":"thriller", "score":392},
+{ "genre":"war", "score":313},
+{ "genre":"western", "score":284}
+]}
