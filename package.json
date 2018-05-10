@@ -13,6 +13,7 @@
     "eslint": "^4.19.1",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.0",
+    "file-loader": "^1.1.11",
     "html-loader": "^0.5.5",
     "ng-annotate-loader": "^0.6.1",
     "node-sass": "^4.8.3",
@@ -30,8 +31,10 @@
     "angular": "^1.6.9",
     "angular-animate": "^1.6.9",
     "angular-aria": "^1.6.9",
+    "angular-chart.js": "^1.1.1",
     "angular-material": "^1.1.8",
-    "angular-messages": "^1.6.9"
+    "angular-messages": "^1.6.9",
+    "jquery": "^3.3.1"
   },
   "scripts": {
     "build": "webpack",

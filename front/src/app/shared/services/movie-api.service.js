@@ -4,7 +4,8 @@ export default class MovieApiService {
     this.$http = $http;
     this.$q = $q;
     this.MOVIE_API_URL = 'https://api.themoviedb.org/3';
-    this.API_KEY = '78fdf10d18cb397803b89d89d23b0d77';
+    this.API_URL = 'http://10.43.33.197:5002/api/movies';
+    this.API_KEY = '';
   }
 
   async findMovieById(movieId) {
@@ -27,6 +28,11 @@ export default class MovieApiService {
         this.API_KEY
       }&page=${pageNumber}`,
     );
+    return response;
+  }
+
+  async callApi(movieId) {
+    const response = await this.$http.get(`${this.API_URL}/${movieId}`);
     return response;
   }
 }

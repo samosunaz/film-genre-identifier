@@ -45,8 +45,12 @@ module.exports = {
         loader: 'html-loader',
       },
       {
-        test: /\.jpg$/,
-        loader: 'url-loader',
+        test: /\.(png|jpg|gif|svg|ico)$/,
+        loader: 'file-loader',
+        query: {
+          outputPath: './assets/img/',
+          name: '[name].[ext]?[hash]',
+        },
       },
     ],
   },

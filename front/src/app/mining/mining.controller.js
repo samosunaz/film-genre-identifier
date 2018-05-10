@@ -72,7 +72,7 @@ export default class MiningController {
   async mine() {
     let results = [];
     console.log('Mining...');
-    for (let index = this.selectedPage.number; index > 0; index--) {
+    for (let index = 1; index <= this.selectedPage.number; index++) {
       const result = await this.mineDataFromGenre(index)
         .then(response => {
           return response;

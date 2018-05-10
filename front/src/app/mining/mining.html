@@ -35,7 +35,15 @@
     </md-card>
   </div>
 
-  <div layout="row" layout-align="center start" flex="75">
+  <div layout="row" layout-align="center start" flex="75" layout-wrap>
+    <!-- <md-card ng-repeat="movie in vm.movies" flex="20">
+      <img ng-src="{{ 'https://image.tmdb.org/t/p/w300_and_h450_bestv2' + movie.backdrop_path }}" alt="">
+      <md-card-title>
+        <md-truncate>
+          <span>{{ movie.original_title }}</span>
+        </md-truncate>
+      </md-card-title>
+    </md-card> -->
     <md-card ng-if="vm.foundMovies" flex="75">
       <md-toolbar class="md-primary">
         <div class="md-toolbar-tools">

@@ -5,10 +5,18 @@ import ngMessages from 'angular-messages';
 import ngMaterial from 'angular-material';
 import uiRouter from '@uirouter/angularjs';
 import routing from './core.routing';
+import 'angular-chart.js';
 
 import 'angular-material/angular-material.min.css';
 const core = angular
-  .module('app.core', [ngAnimate, ngAria, ngMessages, ngMaterial, uiRouter])
+  .module('app.core', [
+    ngAnimate,
+    ngAria,
+    ngMessages,
+    ngMaterial,
+    uiRouter,
+    'chart.js',
+  ])
   .config(routing).name;
 
 export default core;
