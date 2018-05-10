@@ -1,0 +1,48 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+  min-width: 100%;
+}
+
+.h-100 {
+  min-height: 100% !important;
+  height: 100% !important;
+}
+
+.w-100 {
+  min-width: 100%;
+  width: 100%;
+}
+
+.parallax {
+  height: 100%;
+  background-position: center center;
+}
+
+.bg-movies {
+  background-image: url('./assets/movies.png');
+}
+
+md-input-container {
+  label {
+    color: gainsboro !important;
+  }
+  input {
+    color: white !important;
+  }
+  &.md-input-focused {
+    label {
+      color: white !important;
+    }
+    input {
+      color: white !important;
+      border-color: white !important;
+    }
+  }
+}
+.bg-white {
+  background: white;
+  color: white;
+}
